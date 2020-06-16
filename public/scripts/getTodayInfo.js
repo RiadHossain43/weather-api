@@ -2,16 +2,23 @@ import { cloudset } from './clouds.js'
 import { generateRain } from './generateRain.js'
 import { rainspeed } from './rainspeed.js'
 import { generateSnow } from './generateSnow.js'
+import {generateThunder} from './generateThunder.js'
 
 let set_style = (elem, styles) => {
     Object.assign(elem.style, styles);
 }
 function israining(icon) {
-    if (icon === '09d' || icon === '09n' || icon === '10d' || icon === '10n') return true
+    if (icon === '09d' || icon === '09n' ||
+        icon === '10d' || icon === '10n' ||
+        icon === '11d' || icon === '11n') return true
     return false
 }
 function issnowing(icon) {
     if (icon === '13d' || icon === '13n') return true
+    return false
+}
+function isstorming(icon){
+    if(icon === '11d' || icon === '11n') return true
     return false
 }
 function getTime_form_unix(UST) {
@@ -41,6 +48,9 @@ let getTodayInfo = (latitude, longitude) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            
+            // weather test.....
+            // data.weather[0].icon = '50n'
 
             const clouds = document.getElementsByClassName('bg-cloud-icon')
             const conatiner = document.querySelector('.container')
@@ -90,6 +100,8 @@ let getTodayInfo = (latitude, longitude) => {
             pos_lat.innerHTML = `Latitude:<span class="firgure-data"> ${data.coord.lat}<span>&#176;</span></span>`
             pos_lng.innerHTML = `Longitude:<span class="firgure-data"> ${data.coord.lon}<span>&#176;</span></span>`
 
+            
+            
 
             if (israining(data.weather[0].icon)) {
                 setInterval(() => {
@@ -100,6 +112,12 @@ let getTodayInfo = (latitude, longitude) => {
                 setInterval(() => {
                     generateSnow()
                 }, rainspeed[`_${data.weather[0].icon}`]);
+            }
+            if(isstorming(data.weather[0].icon)){
+                generateThunder()
+                setInterval(() => {
+                    generateThunder()
+                }, 5000)
             }
 
         })
