@@ -1,12 +1,6 @@
 import {getTodayInfo} from './getTodayInfo.js'
 import {getForcast} from './getForcast.js'
 
-let crtEle = () => document.createElement('div')
-let eleQS = cls => document.querySelector(cls)
-let set_style = (elem, styles) => {
-    Object.assign(elem.style, styles);
-}
- 
 
 window.addEventListener('load', () => {
     let latitude

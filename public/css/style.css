@@ -169,7 +169,9 @@ ul{
     grid-row: 2/3;
     
 }
-
+.sun_detail{
+    margin:0 .5rem
+}
 .wind-flow{
     grid-column: 3/5;
     grid-row: 3/4;
@@ -322,5 +324,10 @@ ul{
     }
     .rain-drop{
         height: 30px;
+    }
+    .snow-drop{
+        width: 10px;
+        height: 10px;
+       
     }
 }
