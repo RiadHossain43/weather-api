@@ -58,8 +58,8 @@ let getTodayInfo = (latitude, longitude) => {
             console.log(typeof data.visibility)
             set_style(conatiner, { background: `var(--bg-${data.weather[0].icon})` })
             for (let i = 0; i < clouds.length; i++) {
-                // clouds[i].src = cloudset[`imgset_${data.weather[0].icon[0]}${data.weather[0].icon[1]}`][i]
-                clouds[i].src = cloudset[`imgset_10`][i]
+                clouds[i].src = cloudset[`imgset_${data.weather[0].icon[0]}${data.weather[0].icon[1]}`][i]
+                // clouds[i].src = cloudset[`imgset_10`][i]
             }
             let visibility = (data.visibility / 1000).toFixed(1)
             sun_moon.src = `./weather_icons/others/${sun_moon_src[`${data.weather[0].icon[2]}`]}`
