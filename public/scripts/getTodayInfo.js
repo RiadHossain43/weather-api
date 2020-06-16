@@ -87,8 +87,8 @@ let getTodayInfo = (latitude, longitude) => {
                             Sunset  <span class="firgure-data">${getTime_form_unix(data.sys.sunset)}</span>pm`
 
             wsp.innerHTML = `Wind Speed <span class="firgure-data">${(data.wind.speed).toFixed(1)} Km/hr</span> | <span class="firgure-data"> ${(data.wind.deg).toFixed(1)} deg</span>`
-            pos_lat.innerHTML = `Latitude: ${data.coord.lat}<span>&#176;</span></span>`
-            pos_lng.innerHTML = `Longitude: ${data.coord.lon}<span>&#176;</span></span>`
+            pos_lat.innerHTML = `Latitude:<span class="firgure-data"> ${data.coord.lat}<span>&#176;</span></span>`
+            pos_lng.innerHTML = `Longitude:<span class="firgure-data"> ${data.coord.lon}<span>&#176;</span></span>`
 
 
             if (israining(data.weather[0].icon)) {
