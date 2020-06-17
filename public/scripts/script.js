@@ -18,6 +18,8 @@ window.addEventListener('load', () => {
             getTodayInfo(latitude, longitude)
             getForcast(latitude, longitude)  
         })
+    }else{
+        alert('Error loading data.Sorry geolocation has been blocked on this device. PLease refresh and allow access')
     }
     
     
