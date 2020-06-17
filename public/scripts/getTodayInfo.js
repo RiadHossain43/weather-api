@@ -50,7 +50,7 @@ let getTodayInfo = (latitude, longitude) => {
             console.log(data)
             
             // weather test.....
-            // data.weather[0].icon = '50n'
+            // data.weather[0].icon = '13d'
 
             const clouds = document.getElementsByClassName('bg-cloud-icon')
             const conatiner = document.querySelector('.container')

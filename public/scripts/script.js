@@ -6,6 +6,10 @@ window.addEventListener('load', () => {
     let latitude
     let longitude
 
+    if('geolocation' in navigator){
+        console.log('geolocation available')
+    }else alert('geolocation not available')
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(pos => {
             latitude = pos.coords.latitude
