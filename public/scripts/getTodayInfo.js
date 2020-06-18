@@ -29,7 +29,7 @@ function getTime_form_unix(UST) {
     var minutes = "0" + date.getMinutes()
     var seconds = "0" + date.getSeconds()
     var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)
-    console.log(formattedTime)
+    // console.log(formattedTime)
     return formattedTime
 }
 
@@ -47,10 +47,10 @@ let getTodayInfo = (latitude, longitude) => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             
             // weather test.....
-            // data.weather[0].icon = '13d'
+            // data.weather[0].icon = '11n'
 
             const clouds = document.getElementsByClassName('bg-cloud-icon')
             const conatiner = document.querySelector('.container')
@@ -89,6 +89,7 @@ let getTodayInfo = (latitude, longitude) => {
             weather_icon.src = `./weather_icons/animated/${data.weather[0].icon}.svg`
             temp.innerHTML = `${(data.main.temp - 273).toFixed(2)}<span>&#176;</span>C`
             w_des.innerHTML = `${data.weather[0].main}<br>(${data.weather[0].description})`
+            // w_des.innerHTML = `ThunderStorm<br>(light thunderstorm)`
             feels_like.innerHTML = `Feels Like <span class="firgure-data">${(data.main.feels_like - 273).toFixed(2)}<span>&#176;</span>C</span>`
             hum.innerHTML = `Humidity <span class="firgure-data">${data.main.humidity}%</span>`
             pres.innerHTML = `Pressure <span class="firgure-data">${(data.main.pressure / 1013.25).toFixed(2)}Atm</span>`
@@ -117,7 +118,7 @@ let getTodayInfo = (latitude, longitude) => {
                 generateThunder()
                 setInterval(() => {
                     generateThunder()
-                }, 5000)
+                },5000)
             }
 
         })
